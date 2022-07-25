@@ -2,7 +2,7 @@
 
 require_once "../config.php";
 require_once "../utils.php";
-require_once "../product.php";
+require_once "../product_classes/cart_product.php";
 
 if (isset($_POST['Qty']) && isset($_POST['Product']))
 {
@@ -34,7 +34,7 @@ if (isset($_POST['Qty']) && isset($_POST['Product']))
             $row = $result->fetch_array(MYSQLI_ASSOC);
             $result->close();
 
-            $_SESSION['cart'][] = new Product($row, $orderQty);
+            $_SESSION['cart'][] = new CartProduct($row, $orderQty);
         }
     }
     

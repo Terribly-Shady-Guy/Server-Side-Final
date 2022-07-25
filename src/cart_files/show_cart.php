@@ -1,6 +1,6 @@
 <?php
 
-require_once "src/product.php";
+require_once "src/product_classes/cart_product.php";
 
 session_start();
 
@@ -14,7 +14,7 @@ if (isset($_SESSION['cart']))
 {
     foreach($_SESSION['cart'] as $cartItem)
     {
-        $cartList .= $cartItem->createCartCard();
+        $cartList .= $cartItem->createCard();
         $subtotal += $cartItem->getProductSubtotal();
     }
 

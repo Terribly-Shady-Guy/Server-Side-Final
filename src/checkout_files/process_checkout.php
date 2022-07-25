@@ -1,7 +1,7 @@
 <?php
 
 require_once "../config.php";
-require_once "../product.php";
+require_once "../product_classes/cart_product.php";
 require_once "add_customer.php";
 require_once "add_payment.php";
 

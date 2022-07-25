@@ -1,7 +1,7 @@
 <?php
 
 require_once "src/config.php";
-require_once "src/product.php";
+require_once "src/product_classes/store_product.php";
 
 $connection = new mysqli($hn, $un, $pw, $db);
 if ($connection->connect_error) die("Failed to connect to database");
@@ -17,8 +17,8 @@ for ($rowNum = 0; $rowNum < $rows; $rowNum++)
 {
     $row = $result->fetch_array(MYSQLI_ASSOC);
     
-    $product = new Product($row);
-    $productList .= $product->createProductCard();
+    $product = new StoreProduct($row);
+    $productList .= $product->createCard();
     
     if (($rowNum + 1) % 3 == 0 && ($rowNum != 0 && $rowNum != $rows - 1))
     {

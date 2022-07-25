@@ -1,6 +1,6 @@
 <?php
 
-require_once "../product.php";
+require_once "../product_classes/cart_product.php";
 
 session_start();
 
