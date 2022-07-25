@@ -1,11 +1,17 @@
-#MainContent {
-    min-height: 60vh;
+#CartContainer {
+    min-height: 34vh;
     height: 100%;
+}
+
+.CartItem, #Details {
+    display: flex;
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
 }
 
 .CartItemCol, .DetailsCol {
     width: 30%;
-    float: left;
     margin-left: 10px;
 }
 
@@ -16,24 +22,15 @@
 }
 
 .CartItem {
-    width: 100%;
-    border-style: solid;
-    border-width: 1px;
     margin-top: 5px;
     margin-bottom: 5px;
-}
-
-#Details {
-    width: 100%;
-    border-style: solid;
-    border-width: 1px;
 }
 
 #Details p {
     margin-left: 10px;
 }
 
-.CartItem::after, #Details::after, #MainContent::after {
+.CartItem::after, #Details::after, #CartContainer::after {
     content: "";
     clear: both;
     display: block;

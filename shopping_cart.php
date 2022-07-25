@@ -1,9 +1,8 @@
 <?php
-
 require_once "html_utils.php";
-require_once "src/cart_files/show_cart.php";
+require_once "src/cart_files/calculate_totals.php";
+?>
 
-echo <<<_END
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,29 +12,33 @@ echo <<<_END
         <link rel="stylesheet" href="styles/shopping_cart_layout.css">
     </head>
     <body>
-        $header
-        <div id="MainContent">
-            \n$cartList
-        </div>
-        <div id="Details">
-            <div class="DetailsCol">
-                <p>Subtotal:</p>
-                <p>Tax:</p>
-                <p>Total:</p>
+        <?= $header ?>
+        <main>
+            <div id="CartContainer">
+                <?php
+                    foreach ($_SESSION['cart'] as $cartItem)
+                    {
+                        echo $cartItem->createCard();
+                    }
+                ?>
             </div>
-            <div class="DetailsCol">
-                <p>$subtotal</p>
-                <p>$tax</p>
-                <p>$total</p>
+            <div id="Details">
+                <div class="DetailsCol">
+                    <p>Subtotal:</p>
+                    <p>Tax:</p>
+                    <p>Total:</p>
+                </div>
+                <div class="DetailsCol">
+                    <p><?= $subtotal ?></p>
+                    <p><?= $tax ?></p>
+                    <p><?= $total ?></p>
+                </div>
+                <div class="DetailsCol">
+                    <p><a href="checkout.php">Proceed to Checkout</a></p>
+                </div>
             </div>
-            <div class="DetailsCol">
-                <p><a href="checkout.php">Proceed to Checkout</a></p>
-            </div>
-        </div>
-        $footer
-        $loginScript
+        </main>
+        <?= $footer ?>
+        <?= $loginScript ?>
     </body>
 </html>
-_END;
-
-?>

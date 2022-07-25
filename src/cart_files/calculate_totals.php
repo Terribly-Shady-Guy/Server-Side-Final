@@ -14,7 +14,6 @@ if (isset($_SESSION['cart']))
 {
     foreach($_SESSION['cart'] as $cartItem)
     {
-        $cartList .= $cartItem->createCard();
         $subtotal += $cartItem->getProductSubtotal();
     }
 
