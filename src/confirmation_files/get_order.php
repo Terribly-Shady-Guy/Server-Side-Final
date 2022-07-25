@@ -39,7 +39,7 @@ if (isset($_SESSION['order']))
 }
 else
 {
-    echo "No order available";
+    header("Location: product_list.php");
 }
 
 function getOrder($connection, $orderKey)
