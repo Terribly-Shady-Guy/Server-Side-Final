@@ -1,8 +1,10 @@
 <?php
+
 require_once "html_utils.php";
 require_once "src/home_files/show_featured.php";
 
-echo <<<_END
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +14,7 @@ echo <<<_END
         <link rel="stylesheet" href="styles/style.css">
     </head>
     <body>
-        $header
+        <?php echo $header ?>
         <div id="MainContent">
             <div id="Overview">
                 <h1>Welcome to Gamers' Emporium!</h1>
@@ -21,13 +23,15 @@ echo <<<_END
             </div>
             <div id="FeaturedProducts">
                 <h3>Featured Products:</h3>
-                $featuredProducts
+                <?php
+                    foreach ($featuredProducts as $product)
+                    {
+                        echo $product->createCard();
+                    }
+                ?>
             </div>
         </div>
-        $footer
-        $loginScript
+        <?php echo $footer ?>
+        <?php echo $loginScript ?>
     </body>
 </html>
-_END;
-
-?>
