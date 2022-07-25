@@ -1,9 +1,9 @@
 <?php
-
 require_once "html_utils.php";
 require_once "src/confirmation_files/get_order.php";
+require_once "src/confirmation_files/ordered_product.php";
+?>
 
-echo <<<_END
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,27 +22,27 @@ echo <<<_END
                 <table id="OrderInfo">
                     <tr>
                         <td>Order Number:</td>
-                        <td>$orderKey</td>
+                        <td><?= $orderKey ?></td>
                     </tr>
                     <tr>
                         <td>Order Date:</td>
-                        <td>$orderDate</td>
+                        <td><?= $orderDate ?></td>
                     </tr>
                     <tr>
                         <td>Total:</td>
-                        <td>$total</td>
+                        <td><?= $total ?></td>
                     </tr> 
                     <tr>
                         <td>Name:</td>
-                        <td>$fullName</td>
+                        <td><?= $fullName ?></td>
                     </tr>
                     <tr>
                         <td>Address:</td>
-                        <td>$address</td>
+                        <td><?= $address ?></td>
                     </tr>
                     <tr>
                         <td>Card Number:</td>
-                        <td>$cardNumber</td>
+                        <td><?= $cardNumber ?></td>
                     </tr>
                 </table>
                 <table id="OrderedProducts">
@@ -51,13 +51,15 @@ echo <<<_END
                         <th>Price</th>
                         <th>Ordered Qty</th>
                     </tr>
-                    $orderedProducts
+                    <?php
+                        foreach ($orderedProducts as $product)
+                        {
+                            echo $product->createRow();
+                        }
+                    ?>
                 </table>
             </div>
-            $footer
+            <?= $footer ?>
         </div>
     </body>
 </html>
-_END;
-
-?>
