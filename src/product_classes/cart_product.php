@@ -51,7 +51,7 @@ class CartProduct implements ProductInterface
         $price = "$" . number_format($price, 2);
         $orderQty = htmlspecialchars($this->orderQty);
 
-        $subtotal = $this->price * $this->orderQty;
+        $subtotal = $this->getProductSubtotal();
         $subtotal = "$" . number_format($subtotal, 2);
 
         return <<<_END
