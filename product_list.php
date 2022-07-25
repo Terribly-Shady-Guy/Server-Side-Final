@@ -1,9 +1,8 @@
 <?php
-
 require_once "html_utils.php";
 require_once "src/shop_files/show_products.php";
+?>
 
-echo <<<_END
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,14 +12,21 @@ echo <<<_END
         <link rel="stylesheet" href="styles/style.css">
     </head>
     <body>
-        $header
-        <div id="MainContent">
+        <?= $header ?>
+        <main>
             <p id="CartLink"><a href="shopping_cart.php">To Cart</a></p>
             <p id="AddProductLink" hidden><a href="product_form.php">Add product</a></p>
-            $productList
+            <div id="GridWrapper">
+                <?php
+                    foreach ($products as $product)
+                    {
+                        echo $product->createCard();
+                    }
+                ?>
+            </main>
         </div>
-        $footer
-        $loginScript
+        <?= $footer ?>
+        <?= $loginScript ?>
         <script>
             function sendData(event) {
                 if (event.submitter.value == "add") {
@@ -48,6 +54,3 @@ echo <<<_END
         </script>
     </body>
 </html>
-_END;
-
-?>

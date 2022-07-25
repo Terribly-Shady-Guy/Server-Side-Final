@@ -11,23 +11,13 @@ $result = $connection->query($query);
 if(!$result) die("Failed to retreive product data");
 
 $rows = $result->num_rows;
-$productList = "<div class='ProductRow'>\n";
+$products = array();
 
 for ($rowNum = 0; $rowNum < $rows; $rowNum++)
 {
     $row = $result->fetch_array(MYSQLI_ASSOC);
-    
-    $product = new StoreProduct($row);
-    $productList .= $product->createCard();
-    
-    if (($rowNum + 1) % 3 == 0 && ($rowNum != 0 && $rowNum != $rows - 1))
-    {
-        $productList .= "</div>\n";
-        $productList .= "<div class='ProductRow'>\n";
-    }
+    $products[$rowNum] = new StoreProduct($row);
 }
-
-$productList .= "</div>\n";
 
 $result->close();
 $connection->close();
