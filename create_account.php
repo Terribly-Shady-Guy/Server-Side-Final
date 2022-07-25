@@ -2,7 +2,8 @@
 
 require_once "html_utils.php";
 
-echo <<<_END
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -44,10 +45,7 @@ echo <<<_END
                     </tr>
                 </table>
             </form>
-            $footer
+            <?=$footer?>
         </div>
     </body>
 </html>
-_END;
-
-?>

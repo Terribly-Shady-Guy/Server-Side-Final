@@ -14,7 +14,7 @@ require_once "src/home_files/show_featured.php";
         <link rel="stylesheet" href="styles/style.css">
     </head>
     <body>
-        <?php echo $header ?>
+        <?= $header ?>
         <div id="MainContent">
             <div id="Overview">
                 <h1>Welcome to Gamers' Emporium!</h1>
@@ -31,7 +31,7 @@ require_once "src/home_files/show_featured.php";
                 ?>
             </div>
         </div>
-        <?php echo $footer ?>
-        <?php echo $loginScript ?>
+        <?= $footer ?>
+        <?= $loginScript ?>
     </body>
 </html>
