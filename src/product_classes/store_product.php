@@ -50,7 +50,7 @@ class StoreProduct implements ProductInterface
                     <input type="submit" name="delete" value="delete" class="Delete" hidden formaction="src/shop_files/delete_product.php">
                 </div>
             </form>
-        </div>\n
+        </div>
         _END;
     }
 }
