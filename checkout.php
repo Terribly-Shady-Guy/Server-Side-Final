@@ -1,7 +1,3 @@
-<?php
-require_once "html_utils.php";
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -59,7 +55,10 @@ require_once "html_utils.php";
                     </tr>
                 </table>
             </form>
-            <?= $footer ?>
+            <?php
+                require_once "html_utils.php";
+                echo $footer;
+             ?>
         </div>
     </body>
 </html>

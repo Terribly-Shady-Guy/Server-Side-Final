@@ -1,8 +1,6 @@
 <?php
-
 require_once "html_utils.php";
 require_once "src/home_files/show_featured.php";
-
 ?>
 
 <!DOCTYPE html>
