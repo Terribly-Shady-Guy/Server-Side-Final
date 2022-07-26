@@ -1,5 +1,5 @@
-var varifyAuthDiv = document.getElementById("verify_auth_result");
-var loginForm = document.getElementById("LoginForm");
+const varifyAuthDiv = document.getElementById("verify_auth_result");
+const loginForm = document.getElementById("LoginForm");
 
 fetch("src/login_management/verify_auth.php")
 .then(response => response.json())
@@ -7,12 +7,13 @@ fetch("src/login_management/verify_auth.php")
     if(data.auth) {
         loginForm.style.display = 'none';
         varifyAuthDiv.style.display = 'block';
-        var welcome = document.getElementById("Welcome");
+
+        const welcome = document.getElementById("Welcome");
         welcome.innerHTML = "Welcome back " + data.username;
 
-        var addProductLink = document.getElementById("AddProductLink");
-        var updateButtons = document.getElementsByClassName("Update");
-        var deleteButtons = document.getElementsByClassName("Delete");
+        const addProductLink = document.getElementById("AddProductLink");
+        const updateButtons = document.getElementsByClassName("Update");
+        const deleteButtons = document.getElementsByClassName("Delete");
 
         if (addProductLink != null) {
             addProductLink.style.display = 'block';
@@ -27,9 +28,10 @@ fetch("src/login_management/verify_auth.php")
     }
 });
 
+const logoutBtn = document.getElementById("logout");
+logoutBtn.onclick = logout;
+
 function logout() {
     fetch('src/login_management/logout.php')
-    .then(function() { 
-        location.reload(); 
-    });
+    .then(() => location.reload());
 }

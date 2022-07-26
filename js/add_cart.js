@@ -2,11 +2,11 @@ function sendData(event) {
     if (event.submitter.value == "add") {
         event.preventDefault();
         
-        var submittedForm = event.submitter.form;
-        var qty = submittedForm.elements.namedItem("Qty");
-        var product = submittedForm.elements.namedItem("Product");
+        const submittedForm = event.submitter.form;
+        const qty = submittedForm.elements.namedItem("Qty");
+        const product = submittedForm.elements.namedItem("Product");
 
-        var formData = new FormData();
+        const formData = new FormData();
         formData.append("Qty", qty.value);
         formData.append("Product", product.value);
         
@@ -17,7 +17,7 @@ function sendData(event) {
     }
 }
 
-var forms = document.getElementsByClassName("AddCartForm");
-for (index = 0; index < forms.length; index++) {
-    forms[index].addEventListener("submit", sendData);
+const forms = document.getElementsByClassName("AddCartForm");
+for (const form of forms) {
+    form.addEventListener("submit", sendData);
 }

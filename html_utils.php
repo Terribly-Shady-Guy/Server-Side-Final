@@ -18,7 +18,7 @@ $header = <<<_END
         </div>  
     </form>
     <div id="verify_auth_result" hidden>
-        <input type="button" value="Logout" id="logout" onclick="logout()">
+        <input type="button" value="Logout" id="logout">
         <a href="admin.php">to admin page</a>
         <p id="Welcome"></p>
     </div>
