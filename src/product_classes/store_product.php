@@ -41,13 +41,13 @@ class StoreProduct implements ProductInterface
             <form class="AddCartForm" action="" method="post">
                 <div class="FormRow">
                     <label>Qty:</label> 
-                    <input type="text" id="Qty" name="Qty" size="3" maxlength="2" value="1" autocomplete="off">
-                    <input type="hidden" id="Product" name="Product" value="$productKey">
-                    <input type="submit" name="Add" value="add">
+                    <input type="text" name="Qty" size="3" maxlength="2" value="1" autocomplete="off">
+                    <input type="hidden" name="Product" value="$productKey">
+                    <button type="button" name="Add" class="Add">Add</button>
                 </div>
                 <div class="FormRow">
-                    <input type="submit" name="update" value="update" class="Update" hidden formaction="update_form.php">
-                    <input type="submit" name="delete" value="delete" class="Delete" hidden formaction="src/shop_files/delete_product.php">
+                    <button type="submit" name="update" class="Update" hidden formaction="update_form.php">Update</button>
+                    <button type="submit" name="delete" class="Delete" hidden formaction="src/shop_files/delete_product.php">Delete</button>
                 </div>
             </form>
         </div>
