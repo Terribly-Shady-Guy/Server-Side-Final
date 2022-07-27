@@ -10,7 +10,7 @@ $header = <<<_END
     <form id="LoginForm" method="post" action="src/login_management/login.php">
         <div class="LoginCol">
             <p><a href="create_account.php">Sign Up</a></p>
-            <input type="submit" name="Login" id="login" value="Login">
+            <button type="submit" name="Login" id="login">Login</button>
         </div>
         <div class="LoginCol">
             <input type="text" name="Username" id="Username" placeholder="Enter Username" autocomplete="off" required>
