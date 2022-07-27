@@ -69,6 +69,7 @@ header {
 
 #LoginForm #Username, #LoginForm #Password {
     margin-left: auto;
+    width: 90%
 }
 
 #LoginForm p {

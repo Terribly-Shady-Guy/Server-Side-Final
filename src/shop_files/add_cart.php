@@ -29,8 +29,13 @@ if (isset($_POST['Qty']) && isset($_POST['Product']))
         }
         else
         {
-            $query = "SELECT * FROM Products WHERE ProductKey = $productKey";
-            $result = $connection->query($query);
+            $stmt = $connection->prepare("SELECT * FROM Products WHERE ProductKey = ?");
+            $stmt->bind_param("i", $productKey);
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $stmt->close();
+
             $row = $result->fetch_array(MYSQLI_ASSOC);
             $result->close();
 

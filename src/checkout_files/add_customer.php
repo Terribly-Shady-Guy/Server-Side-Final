@@ -34,9 +34,12 @@ function addCustomer($connection)
 
 function getCustomerKey($connection, $firstName, $lastName)
 {
-    $query = "SELECT CustomerKey FROM Customer WHERE CustFirstName = '$firstName' AND CustLastName = '$lastName'";
-    $result = $connection->query($query);
-    if ($result->num_rows == 0)
+    $stmt = $connection->prepare("SELECT CustomerKey FROM Customer WHERE CustFirstName = ? AND CustLastName = ?");
+    $stmt->bind_param("ss", $firstName, $lastName);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    if ($result == false)
     {
         $row = array();
     }
@@ -46,6 +49,8 @@ function getCustomerKey($connection, $firstName, $lastName)
     }
 
     $result->close();
+    $stmt->close();
+    
     return $row;
 }
 

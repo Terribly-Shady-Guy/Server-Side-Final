@@ -30,9 +30,12 @@ function addPayment($connection, $customerKey)
 
 function getPaymentKey($connection, $cardNumber)
 {
-    $query = "SELECT PaymentKey FROM Payment WHERE CardNum = '$cardNumber'";
-    $result = $connection->query($query);
-    if ($result->num_rows == 0)
+    $stmt = $connection->prepare("SELECT PaymentKey FROM Payment WHERE CardNum = ?");
+    $stmt->bind_param("s", $cardNumber);
+    $stmt->execute();
+
+    $result = $stmt->get_result();    
+    if ($result == false)
     {
         $row = array();
     }
@@ -42,6 +45,8 @@ function getPaymentKey($connection, $cardNumber)
     }
 
     $result->close();
+    $stmt->close();
+    
     return $row;
 }
 
