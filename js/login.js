@@ -19,7 +19,7 @@ function displayControls(data) {
         varifyAuthDiv.style.display = 'block';
 
         const welcome = document.getElementById("Welcome");
-        welcome.innerHTML = "Welcome back " + data.username;
+        welcome.innerHTML = `Welcome back ${data.username}`;
 
         const addProductLink = document.getElementById("AddProductLink");
         const updateButtons = document.getElementsByClassName("Update");
