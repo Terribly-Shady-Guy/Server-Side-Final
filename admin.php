@@ -20,10 +20,12 @@ require_once "src/admin/show_data.php";
         </style>
         <header>
             <h1>Admin Page</h1>
+            <nav>
+                <a href="index.php">To home</a>
+                <a href="product_list.php">To shop</a>
+            </nav>
         </header>
         <main>
-            <a href="index.php">To home</a>
-            <a href="product_list.php">To shop</a>
             <h3>Users</h3>
             <table>
                 <tr>
