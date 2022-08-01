@@ -1,6 +1,8 @@
 <?php
 
-class Customer
+require_once "admin_model_interface.php";
+
+class Customer implements AdminModelInterface
 {
     private $customerKey;
     private $firstName;

@@ -1,6 +1,8 @@
 <?php
 
-class Payment
+require_once "admin_model_interface.php";
+
+class Payment implements AdminModelInterface
 {
     private $paymentKey;
     private $customerKey;

@@ -1,6 +1,8 @@
 <?php
 
-class Order
+require_once "admin_model_interface.php";
+
+class Order implements AdminModelInterface
 {
     private $orderKey;
     private $total;

@@ -1,6 +1,8 @@
 <?php
 
-class User
+require_once "admin_model_interface.php";
+
+class User implements AdminModelInterface
 {
     private $userKey;
     private $username;
