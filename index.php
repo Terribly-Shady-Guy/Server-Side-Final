@@ -13,7 +13,7 @@ require_once "src/home_files/show_featured.php";
     </head>
     <body>
         <?= $header ?>
-        <div id="MainContent">
+        <main>
             <div id="Overview">
                 <h1>Welcome to Gamers' Emporium!</h1>
                 <p>Welcome to Gamers' Emporium! We offer a variety of gaming related merchandise such as figurines and posters. Our merchandise is the perfect gift for a birthday or christmas. </p>
@@ -28,7 +28,7 @@ require_once "src/home_files/show_featured.php";
                     }
                 ?>
             </div>
-        </div>
+        </main>
         <?= $footer ?>
         <?= $loginScript ?>
     </body>

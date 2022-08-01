@@ -23,8 +23,8 @@ require_once "src/shop_files/show_products.php";
                         echo $product->createCard();
                     }
                 ?>
-            </main>
-        </div>
+            </div>
+        </main>
         <?= $footer ?>
         <?= $loginScript ?>
         <script src="js/add_cart.js"></script>

@@ -17,7 +17,7 @@ require_once "src/confirmation_files/ordered_product.php";
             <header>
                 <h1>Order Confirmation</h1>
             </header>
-            <div id="MainContent">
+            <main>
                 <p><a href="index.php">Return to home page</a></p>
                 <table id="OrderInfo">
                     <tr>
@@ -58,7 +58,7 @@ require_once "src/confirmation_files/ordered_product.php";
                         }
                     ?>
                 </table>
-            </div>
+            </main>
             <?= $footer ?>
         </div>
     </body>
