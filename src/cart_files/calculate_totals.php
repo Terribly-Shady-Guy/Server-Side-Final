@@ -5,7 +5,6 @@ require_once "src/product_classes/cart_product.php";
 session_start();
 
 const SALES_TAX_RATE = 0.06875;
-$cartList = "";
 $subtotal = 0;
 $tax = 0;
 $total = 0;
