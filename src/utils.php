@@ -10,12 +10,9 @@ function sanitizeInput($string, $connection)
 
 function validateInt($number)
 {
-    if (filter_var($number, FILTER_VALIDATE_INT))
+    if (filter_var($number, FILTER_VALIDATE_INT) && $number > 0)
     {
-        if ($number > 0)
-        {
-            return true;
-        }
+        return true;
     }
 
     return false;
@@ -23,14 +20,12 @@ function validateInt($number)
 
 function validateFloat($number)
 {
-    if (filter_var($number, FILTER_VALIDATE_FLOAT))
+    if (filter_var($number, FILTER_VALIDATE_FLOAT) && $number > 0)
     {
-        if ($number > 0)
-        {
-            return true;
-        }
+        return true;
     }
 
     return false;
 }
+
 ?>
