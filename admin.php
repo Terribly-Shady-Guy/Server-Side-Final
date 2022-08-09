@@ -38,15 +38,11 @@ require_once "src/admin/show_data.php";
                     <th>UserEmail</th>
                     <th>Delete</th>
                 </tr>
-                <?php
-                    if (isset($users))
-                    {
-                        foreach ($users as $user)
-                        {
-                            echo $user->createRow();
-                        }
-                    }
-                ?>
+                <?php if (isset($users)): ?>
+                    <?php foreach ($users as $user): ?>
+                        <?= $user->createRow(); ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </table>
             <h3>Customers</h3>
             <table>
@@ -60,15 +56,11 @@ require_once "src/admin/show_data.php";
                     <th>CustZip</th>
                     <th>Delete</th>
                 </tr>
-                <?php
-                    if (isset($customers))
-                    {
-                        foreach ($customers as $customer)
-                        {
-                            echo $customer->createRow();
-                        }
-                    }
-                ?>
+                <?php if (isset($customers)): ?>
+                    <?php foreach ($customers as $customer): ?>
+                        <?= $customer->createRow(); ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </table>
             <h3>Payment</h3>
             <table>
@@ -80,15 +72,11 @@ require_once "src/admin/show_data.php";
                     <th>ExpiryDate</th>
                     <th>Delete</th>
                 </tr>
-                <?php
-                    if (isset($payments))
-                    {
-                        foreach ($payments as $payment)
-                        {
-                            echo $payment->createRow();
-                        }
-                    }
-                ?>
+                <?php if (isset($payments)): ?>
+                    <?php foreach ($payments as $payment): ?>
+                        <?= $payment->createRow(); ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </table>
             <h3>Orders</h3>
             <table>
@@ -100,15 +88,11 @@ require_once "src/admin/show_data.php";
                     <th>PaymentKey</th>
                     <th>Delete</th>
                 </tr>
-                <?php
-                    if (isset($orders))
-                    {
-                        foreach ($orders as $order)
-                        {
-                            echo $order->createRow();
-                        }
-                    }
-                ?>
+                <?php if (isset($orders)): ?>
+                    <?php foreach ($orders as $order): ?>
+                        <?= $order->createRow(); ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </table>
             <h3>OrderDetails</h3>
             <table>
@@ -118,15 +102,11 @@ require_once "src/admin/show_data.php";
                     <th>OrderQty</th>
                     <th>Delete</th>
                 </tr>
-                <?php
-                    if (isset($orderDetails))
-                    {
-                        foreach ($orderDetails as $orderDetail)
-                        {
-                            echo $orderDetail->createRow();
-                        }
-                    }
-                ?>
+                <?php if (isset($orderDetails)): ?>
+                    <?php foreach ($orderDetails as $orderDetail): ?>
+                        <?= $orderDetail->createRow(); ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </table>
         </main>
     </body>

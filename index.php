@@ -21,12 +21,9 @@ require_once "src/home_files/show_featured.php";
             </div>
             <div id="FeaturedProducts">
                 <h3>Featured Products:</h3>
-                <?php
-                    foreach ($featuredProducts as $product)
-                    {
-                        echo $product->createCard();
-                    }
-                ?>
+                <?php foreach ($featuredProducts as $product): ?>
+                    <?= $product->createCard(); ?>
+                <?php endforeach; ?>
             </div>
         </main>
         <?= $footer ?>

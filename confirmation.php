@@ -51,12 +51,9 @@ require_once "src/confirmation_files/ordered_product.php";
                         <th>Price</th>
                         <th>Ordered Qty</th>
                     </tr>
-                    <?php
-                        foreach ($orderedProducts as $product)
-                        {
-                            echo $product->createRow();
-                        }
-                    ?>
+                    <?php foreach ($orderedProducts as $product): ?>
+                        <?= $product->createRow(); ?>
+                    <?php endforeach; ?>
                 </table>
             </main>
             <?= $footer ?>

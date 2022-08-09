@@ -17,12 +17,9 @@ require_once "src/shop_files/show_products.php";
             <p id="CartLink"><a href="shopping_cart.php">To Cart</a></p>
             <p id="AddProductLink" hidden><a href="product_form.php">Add product</a></p>
             <div id="GridWrapper">
-                <?php
-                    foreach ($products as $product)
-                    {
-                        echo $product->createCard();
-                    }
-                ?>
+                <?php foreach ($products as $product): ?>
+                    <?= $product->createCard(); ?>
+                <?php endforeach; ?>
             </div>
         </main>
         <?= $footer ?>

@@ -15,15 +15,11 @@ require_once "src/cart_files/calculate_totals.php";
         <?= $header ?>
         <main>
             <div id="CartContainer">
-                <?php
-                    if (isset($_SESSION['cart']))
-                    {
-                        foreach ($_SESSION['cart'] as $cartItem)
-                        {
-                            echo $cartItem->createCard();
-                        }
-                    }
-                ?>
+                <?php if (isset($_SESSION['cart'])): ?>
+                    <?php foreach ($_SESSION['cart'] as $cartItem): ?>
+                        <?= $cartItem->createCard(); ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
             <div id="Details">
                 <div class="DetailsCol">
