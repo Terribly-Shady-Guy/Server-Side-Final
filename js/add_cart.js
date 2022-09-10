@@ -14,4 +14,6 @@ function sendData(event) {
 }
 
 const addButtons = document.getElementsByClassName("Add");
-addButtons.forEach(b => b.onclick = sendData);
+for (const button of addButtons) {
+    button.onclick = sendData;
+}
