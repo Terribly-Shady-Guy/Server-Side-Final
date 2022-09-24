@@ -3,9 +3,7 @@ fetch("src/login_management/verify_auth.php")
 .then(data => displayControls(data));
 
 const logoutBtn = document.getElementById("logout");
-logoutBtn.onclick = logout;
-
-function logout() {
+logoutBtn.onclick = function() {
     fetch('src/login_management/logout.php')
     .then(() => location.reload());
 }
@@ -32,10 +30,12 @@ function displayControls(data) {
         addProductLink.style.display = 'block';
     }
 
-    if (updateButtons.length > 0) {
-        for (index = 0; index < updateButtons.length; index++) {
-            updateButtons[index].style.display = 'block';
-            deleteButtons[index].style.display = 'block';
-        }
+    if (updateButtons.length <= 0) {
+        return;
+    }
+
+    for (index = 0; index < updateButtons.length; index++) {
+        updateButtons[index].style.display = 'block';
+        deleteButtons[index].style.display = 'block';
     }
 }
