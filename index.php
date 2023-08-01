@@ -1,7 +1,3 @@
-<?php
-require_once "src/home_files/show_featured.php";
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,12 +16,7 @@ require_once "src/home_files/show_featured.php";
                 <p>Take a look at the featurd products on this page for an overview of our recommendations. 
                     We hope you enjoy the merchandise we have to offer! -Gamer Emporium</p>
             </div>
-            <div id="FeaturedProducts">
-                <h3>Featured Products:</h3>
-                <?php foreach ($featuredProducts as $product): ?>
-                    <?= $product->createCard(); ?>
-                <?php endforeach; ?>
-            </div>
+            <?php require_once "templates/featured_products.php" ?>
         </main>
         <?php require_once "templates/footer.php"; ?>
     </body>
