@@ -1,14 +1,6 @@
 fetch("src/login_management/verify_auth.php")
 .then(response => response.json())
-.then(data => displayControls(data));
-
-const logoutBtn = document.getElementById("logout");
-logoutBtn.onclick = () => {
-    fetch('src/login_management/logout.php')
-        .then(() => location.reload());
-}
-
-function displayControls(data) {
+.then(data => {
     if (!data.auth) {
         return;
     }
@@ -38,4 +30,10 @@ function displayControls(data) {
         updateButtons[index].style.display = 'block';
         deleteButtons[index].style.display = 'block';
     }
+});
+
+const logoutBtn = document.getElementById("logout");
+logoutBtn.onclick = () => {
+    fetch('src/login_management/logout.php')
+        .then(() => location.reload());
 }
