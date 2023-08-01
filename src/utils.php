@@ -10,22 +10,10 @@ function sanitizeInput($string, $connection)
 
 function validateInt($number)
 {
-    if (filter_var($number, FILTER_VALIDATE_INT) && $number > 0)
-    {
-        return true;
-    }
-
-    return false;
+    return filter_var($number, FILTER_VALIDATE_INT) && $number > 0;
 }
 
 function validateFloat($number)
 {
-    if (filter_var($number, FILTER_VALIDATE_FLOAT) && $number > 0)
-    {
-        return true;
-    }
-
-    return false;
+    return filter_var($number, FILTER_VALIDATE_FLOAT) && $number > 0;
 }
-
-?>
