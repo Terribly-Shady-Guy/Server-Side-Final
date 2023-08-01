@@ -76,10 +76,10 @@ function getorderDetails($connection, $orderKey)
     $query = "SELECT ProductName, 
                     ProductPrice, 
                     OrderQty 
-                    FROM orderdetails 
-                    INNER JOIN products 
-                        ON orderdetails.ProductKey = products.ProductKey 
-                    WHERE OrderKey = $orderKey";
+                FROM orderdetails 
+                INNER JOIN products 
+                    ON orderdetails.ProductKey = products.ProductKey 
+                WHERE OrderKey = $orderKey";
                     
     $result = $connection->query($query);
     $rows = $result->num_rows;
