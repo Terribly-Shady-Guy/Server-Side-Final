@@ -26,88 +26,11 @@ require_once "src/admin/show_data.php";
             </nav>
         </header>
         <main>
-            <h3>Users</h3>
-            <table>
-                <tr>
-                    <th>UserKey</th>
-                    <th>Username</th>
-                    <th>UserPassword</th>
-                    <th>AccountType</th>
-                    <th>UserFirstName</th>
-                    <th>UserLastName</th>
-                    <th>UserEmail</th>
-                    <th>Delete</th>
-                </tr>
-                <?php if (isset($users)): ?>
-                    <?php foreach ($users as $user): ?>
-                        <?= $user->createRow(); ?>
-                    <?php endforeach ?>
-                <?php endif ?>
-            </table>
-            <h3>Customers</h3>
-            <table>
-                <tr>
-                    <th>CustomerKey</th>
-                    <th>CustFirstName</th>
-                    <th>CustLastName</th>
-                    <th>CustStreetAddress</th>
-                    <th>CustCity</th>
-                    <th>CustState</th>
-                    <th>CustZip</th>
-                    <th>Delete</th>
-                </tr>
-                <?php if (isset($customers)): ?>
-                    <?php foreach ($customers as $customer): ?>
-                        <?= $customer->createRow(); ?>
-                    <?php endforeach ?>
-                <?php endif ?>
-            </table>
-            <h3>Payment</h3>
-            <table>
-                <tr>
-                    <th>PaymentKey</th>
-                    <th>CustomerKey</th>
-                    <th>CardNum</th>
-                    <th>CVV</th>
-                    <th>ExpiryDate</th>
-                    <th>Delete</th>
-                </tr>
-                <?php if (isset($payments)): ?>
-                    <?php foreach ($payments as $payment): ?>
-                        <?= $payment->createRow(); ?>
-                    <?php endforeach ?>
-                <?php endif ?>
-            </table>
-            <h3>Orders</h3>
-            <table>
-                <tr>
-                    <th>OrderKey</th>
-                    <th>Total</th>
-                    <th>OrderDate</th>
-                    <th>CustomerKey</th>
-                    <th>PaymentKey</th>
-                    <th>Delete</th>
-                </tr>
-                <?php if (isset($orders)): ?>
-                    <?php foreach ($orders as $order): ?>
-                        <?= $order->createRow(); ?>
-                    <?php endforeach ?>
-                <?php endif ?>
-            </table>
-            <h3>OrderDetails</h3>
-            <table>
-                <tr>
-                    <th>OrderKey</th>
-                    <th>ProductKey</th>
-                    <th>OrderQty</th>
-                    <th>Delete</th>
-                </tr>
-                <?php if (isset($orderDetails)): ?>
-                    <?php foreach ($orderDetails as $orderDetail): ?>
-                        <?= $orderDetail->createRow(); ?>
-                    <?php endforeach ?>
-                <?php endif ?>
-            </table>
+            <?php require_once "templates/admin/users_table.php" ?>
+            <?php require_once "templates/admin/customer_table.php" ?>
+            <?php require_once "templates/admin/payment_table.php" ?>
+            <?php require_once "templates/admin/orders_table.php" ?>
+            <?php require_once "templates/admin/orderdetails_table.php" ?>
         </main>
     </body>
 </html>
