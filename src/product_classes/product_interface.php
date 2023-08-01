@@ -2,7 +2,7 @@
 
 interface ProductInterface
 {
-    public function createCard();
+    public function getProductSubtotal();
 }
 
 ?>

@@ -2,7 +2,7 @@
 
 require_once "product_interface.php";
 
-class StoreProduct implements ProductInterface
+class StoreProduct
 {
     private $productKey;
     private $image;
