@@ -26,5 +26,3 @@ if (isset($_POST['Product']))
     $price = htmlspecialchars($row['ProductPrice']);
     $invQty = htmlspecialchars($row['InventoryQty']);
 }
-
-?>

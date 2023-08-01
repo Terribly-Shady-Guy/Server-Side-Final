@@ -63,5 +63,3 @@ else
 {
     echo "You do not have permission to add a new product.";
 }
-
-?>

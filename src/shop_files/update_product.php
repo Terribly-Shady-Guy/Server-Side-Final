@@ -75,5 +75,3 @@ else
 {
     echo "You do not have permission to update this product.";
 }
-
-?>

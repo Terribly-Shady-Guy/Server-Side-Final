@@ -87,5 +87,3 @@ function getorderDetails(mysqli $connection, $orderKey): array
 
     return $result->fetch_all(MYSQLI_ASSOC);
 }
-
-?>

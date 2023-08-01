@@ -62,5 +62,3 @@ function validatePost()
     
     return true;
 }
-
-?>

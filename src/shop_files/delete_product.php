@@ -24,5 +24,3 @@ else
 {
     echo "You do not have permission to delete this product.";
 }
-
-?>

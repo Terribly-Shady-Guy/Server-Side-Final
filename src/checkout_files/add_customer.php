@@ -53,5 +53,3 @@ function getCustomerKey($connection, $firstName, $lastName)
     
     return $row;
 }
-
-?>

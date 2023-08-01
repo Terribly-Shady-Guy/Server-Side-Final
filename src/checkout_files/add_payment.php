@@ -49,5 +49,3 @@ function getPaymentKey($connection, $cardNumber)
     
     return $row;
 }
-
-?>

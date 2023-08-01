@@ -57,5 +57,3 @@ class CartProduct implements ProductInterface
         return $this->price * $this->orderQty;
     }
 }
-
-?>

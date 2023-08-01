@@ -60,5 +60,3 @@ function findItem($productKey)
     
     return -1;
 }
-
-?>

@@ -25,5 +25,3 @@ if (isset($_SESSION['cart']))
 $subtotal = "$" . number_format($subtotal, 2);
 $tax = "$" . number_format($tax, 2);
 $total = "$" . number_format($total, 2);
-
-?>

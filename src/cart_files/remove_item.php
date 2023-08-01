@@ -22,5 +22,3 @@ if (isset($_SESSION['cart']) && isset($_POST['Product']))
     
     header("Location: ../../shopping_cart.php");
 }
-
-?>
