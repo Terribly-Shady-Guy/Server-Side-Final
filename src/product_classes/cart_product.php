@@ -26,9 +26,20 @@ class CartProduct implements ProductInterface
         return $this->productKey;
     }
 
-    public function getProductSubtotal()
-    {
-        return $this->price * $this->orderQty;
+    public function getImage() {
+        return $this->image;
+    }
+
+    public function getPrice() {
+        return "$" . number_format($this->price, 2);
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getDescription() {
+        return $this->description;
     }
 
     public function getOrderQty()
@@ -39,6 +50,11 @@ class CartProduct implements ProductInterface
     public function addOrderQty($orderQty)
     {
         $this->orderQty += $orderQty;
+    }
+
+    public function getProductSubtotal()
+    {
+        return $this->price * $this->orderQty;
     }
 
     public function createCard()
