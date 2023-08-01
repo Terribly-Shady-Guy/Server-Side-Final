@@ -1,7 +1,6 @@
 <?php
 
 require_once "src/config.php";
-require_once "ordered_product.php";
 
 session_start();
 
@@ -42,7 +41,7 @@ else
     header("Location: product_list.php");
 }
 
-function getOrder($connection, $orderKey)
+function getOrder(mysqli $connection, $orderKey): array
 {
     $query = "SELECT OrderDate,
                     Total, 
@@ -56,12 +55,15 @@ function getOrder($connection, $orderKey)
 
     $result = $connection->query($query);
     $row = $result->fetch_array(MYSQLI_ASSOC);
-    $result->close();
+
+    if ($row === false) {
+        return [];
+    }
 
     return $row;
 }
 
-function getCardNumber($connection, $paymentKey)
+function getCardNumber(mysqli $connection, $paymentKey): string
 {
     $query = "SELECT CardNum FROM payment WHERE PaymentKey = $paymentKey";
     $result = $connection->query($query);
@@ -71,7 +73,7 @@ function getCardNumber($connection, $paymentKey)
     return htmlspecialchars($row['CardNum']);
 }
 
-function getorderDetails($connection, $orderKey)
+function getorderDetails(mysqli $connection, $orderKey): array
 {
     $query = "SELECT ProductName, 
                     ProductPrice, 
@@ -82,18 +84,8 @@ function getorderDetails($connection, $orderKey)
                 WHERE OrderKey = $orderKey";
                     
     $result = $connection->query($query);
-    $rows = $result->num_rows;
 
-    $orderedProducts = array();
-    for ($rowNum = 0; $rowNum < $rows; $rowNum++)
-    {
-        $row = $result->fetch_array(MYSQLI_ASSOC);
-        $orderedProducts[$rowNum] = new OrderedProduct($row);
-    }
-
-    $result->close();
-
-    return $orderedProducts;
+    return $result->fetch_all(MYSQLI_ASSOC);
 }
 
 ?>

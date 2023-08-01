@@ -1,6 +1,5 @@
 <?php
 require_once "src/confirmation_files/get_order.php";
-require_once "src/confirmation_files/ordered_product.php";
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +50,11 @@ require_once "src/confirmation_files/ordered_product.php";
                         <th>Ordered Qty</th>
                     </tr>
                     <?php foreach ($orderedProducts as $product): ?>
-                        <?= $product->createRow(); ?>
+                        <tr>
+                            <td><?= htmlspecialchars($product['ProductName']) ?></td>
+                            <td>$<?= number_format(htmlspecialchars($product['ProductPrice']), 2) ?></td>
+                            <td><?= htmlspecialchars($product['OrderQty']) ?></td>
+                        </tr>
                     <?php endforeach ?>
                 </table>
             </main>
