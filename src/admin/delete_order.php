@@ -18,4 +18,3 @@ if (isset($_POST['orderKey']))
     $connection->close();
     header("Location: ../../admin.php");
 }
-?>

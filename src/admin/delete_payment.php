@@ -18,5 +18,3 @@ if (isset($_POST['PaymentKey']))
     $connection->close();
     header("Location: ../../admin.php");
 }
-
-?>

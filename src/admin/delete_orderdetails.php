@@ -20,5 +20,3 @@ if (isset($_POST['OrderKey']) && isset($_POST['ProductKey']))
     
     header("Location: ../../admin.php");
 }
-
-?>

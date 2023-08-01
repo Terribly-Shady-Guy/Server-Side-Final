@@ -18,5 +18,3 @@ if (isset($_POST['UserKey']))
     $connection->close();
     header("Location: ../../admin.php");
 }
-
-?>
