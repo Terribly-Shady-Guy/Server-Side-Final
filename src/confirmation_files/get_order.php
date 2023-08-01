@@ -44,7 +44,16 @@ else
 
 function getOrder($connection, $orderKey)
 {
-    $query = "SELECT OrderDate, Total, CONCAT(CustFirstName,' ', CustLastName) AS CustName, CONCAT(CustStreetAddress,' ', CustCity, ', ', CustState, ', ', CustZip) AS CustAddress, PaymentKey FROM Orders INNER JOIN Customer ON Customer.CustomerKey = Orders.CustomerKey WHERE OrderKey = $orderKey";
+    $query = "SELECT OrderDate,
+                    Total, 
+                    CONCAT(CustFirstName,' ', CustLastName) AS CustName, 
+                    CONCAT(CustStreetAddress,' ', CustCity, ', ', CustState, ', ', CustZip) AS CustAddress,
+                    PaymentKey 
+                FROM Orders 
+                INNER JOIN Customer 
+                    ON Customer.CustomerKey = Orders.CustomerKey 
+                WHERE OrderKey = $orderKey";
+
     $result = $connection->query($query);
     $row = $result->fetch_array(MYSQLI_ASSOC);
     $result->close();
@@ -64,7 +73,14 @@ function getCardNumber($connection, $paymentKey)
 
 function getorderDetails($connection, $orderKey)
 {
-    $query = "SELECT ProductName, ProductPrice, OrderQty FROM orderdetails INNER JOIN products ON orderdetails.ProductKey = products.ProductKey WHERE OrderKey = $orderKey";
+    $query = "SELECT ProductName, 
+                    ProductPrice, 
+                    OrderQty 
+                    FROM orderdetails 
+                    INNER JOIN products 
+                        ON orderdetails.ProductKey = products.ProductKey 
+                    WHERE OrderKey = $orderKey";
+                    
     $result = $connection->query($query);
     $rows = $result->num_rows;
 
