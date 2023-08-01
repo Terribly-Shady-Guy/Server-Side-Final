@@ -19,7 +19,7 @@ if (isset($_SESSION['username']))
 }
 else
 {
-    $dataTables = "you do not have permission to view this page.";
+    die("you do not have permission to view this page.");
 }
 
 function getDataFromSql(string $sql, mysqli $connection): array {
