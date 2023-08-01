@@ -13,7 +13,7 @@ require_once "src/cart_files/calculate_totals.php";
     <body>
         <?php require_once "templates/header.php" ?>
         <main>
-            <?php require_once "templates/cart_list.php"; ?>
+            <?php require_once "templates/cart_list.php" ?>
             <div id="Details">
                 <div class="DetailsCol">
                     <p>Subtotal:</p>
