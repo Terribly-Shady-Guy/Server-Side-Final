@@ -20,3 +20,4 @@
         <p id="Welcome"></p>
     </div>
 </header>
+<script src="js/login.js" defer></script>

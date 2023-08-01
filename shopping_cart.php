@@ -9,7 +9,6 @@ require_once "src/cart_files/calculate_totals.php";
         <title>Shopping Cart</title>
         <link rel="stylesheet" href="styles/style.css">
         <link rel="stylesheet" href="styles/shopping_cart_layout.css">
-        <script src="js/login.js" defer></script>
     </head>
     <body>
         <?php require_once "templates/header.php" ?>

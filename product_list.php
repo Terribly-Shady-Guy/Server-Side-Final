@@ -22,7 +22,6 @@ require_once "src/shop_files/show_products.php";
             </div>
         </main>
         <?php require_once "templates/footer.php" ?>
-        <script src="js/login.js"></script>
         <script src="js/add_cart.js"></script>
     </body>
 </html>

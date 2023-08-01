@@ -28,6 +28,5 @@ require_once "src/home_files/show_featured.php";
             </div>
         </main>
         <?php require_once "templates/footer.php"; ?>
-        <script src="js/login.js"></script>
     </body>
 </html>
