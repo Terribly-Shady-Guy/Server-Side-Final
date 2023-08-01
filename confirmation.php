@@ -52,10 +52,10 @@ require_once "src/confirmation_files/ordered_product.php";
                     </tr>
                     <?php foreach ($orderedProducts as $product): ?>
                         <?= $product->createRow(); ?>
-                    <?php endforeach; ?>
+                    <?php endforeach ?>
                 </table>
             </main>
-            <?php require_once "templates/footer.php"; ?>
+            <?php require_once "templates/footer.php" ?>
         </div>
     </body>
 </html>

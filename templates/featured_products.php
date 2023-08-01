@@ -10,5 +10,5 @@ require_once "src/home_files/get_featured.php";
             <h3 class="ProductName"><?= htmlspecialchars($product['ProductName']) ?></h3>
             <p class="ProductPrice"><?= htmlspecialchars($product['ProductPrice']) ?></p>
         </div>
-    <?php endforeach; ?>
+    <?php endforeach ?>
 </div>

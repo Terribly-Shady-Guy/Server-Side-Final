@@ -55,7 +55,7 @@
                     </tr>
                 </table>
             </form>
-            <?php require_once "templates/footer.php"; ?>
+            <?php require_once "templates/footer.php" ?>
         </div>
     </body>
 </html>

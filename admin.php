@@ -41,8 +41,8 @@ require_once "src/admin/show_data.php";
                 <?php if (isset($users)): ?>
                     <?php foreach ($users as $user): ?>
                         <?= $user->createRow(); ?>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                    <?php endforeach ?>
+                <?php endif ?>
             </table>
             <h3>Customers</h3>
             <table>
@@ -59,8 +59,8 @@ require_once "src/admin/show_data.php";
                 <?php if (isset($customers)): ?>
                     <?php foreach ($customers as $customer): ?>
                         <?= $customer->createRow(); ?>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                    <?php endforeach ?>
+                <?php endif ?>
             </table>
             <h3>Payment</h3>
             <table>
@@ -75,8 +75,8 @@ require_once "src/admin/show_data.php";
                 <?php if (isset($payments)): ?>
                     <?php foreach ($payments as $payment): ?>
                         <?= $payment->createRow(); ?>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                    <?php endforeach ?>
+                <?php endif ?>
             </table>
             <h3>Orders</h3>
             <table>
@@ -91,8 +91,8 @@ require_once "src/admin/show_data.php";
                 <?php if (isset($orders)): ?>
                     <?php foreach ($orders as $order): ?>
                         <?= $order->createRow(); ?>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                    <?php endforeach ?>
+                <?php endif ?>
             </table>
             <h3>OrderDetails</h3>
             <table>
@@ -105,8 +105,8 @@ require_once "src/admin/show_data.php";
                 <?php if (isset($orderDetails)): ?>
                     <?php foreach ($orderDetails as $orderDetail): ?>
                         <?= $orderDetail->createRow(); ?>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                    <?php endforeach ?>
+                <?php endif ?>
             </table>
         </main>
     </body>

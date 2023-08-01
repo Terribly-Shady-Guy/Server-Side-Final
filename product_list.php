@@ -18,7 +18,7 @@ require_once "src/shop_files/show_products.php";
             <div id="GridWrapper">
                 <?php foreach ($products as $product): ?>
                     <?= $product->createCard(); ?>
-                <?php endforeach; ?>
+                <?php endforeach ?>
             </div>
         </main>
         <?php require_once "templates/footer.php" ?>

@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="styles/style.css">
     </head>
     <body>
-        <?php require_once "templates/header.php"; ?>
+        <?php require_once "templates/header.php" ?>
         <main>
             <div id="Overview">
                 <h1>Welcome to Gamers' Emporium!</h1>
@@ -18,6 +18,6 @@
             </div>
             <?php require_once "templates/featured_products.php" ?>
         </main>
-        <?php require_once "templates/footer.php"; ?>
+        <?php require_once "templates/footer.php" ?>
     </body>
 </html>
