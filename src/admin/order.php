@@ -28,7 +28,7 @@ class Order implements AdminModelInterface
         $paymentKey = htmlspecialchars($this->paymentKey);
 
         return <<<_END
-        \n<tr>
+        <tr>
             <td>$orderKey</td>
             <td>$total</td>
             <td>$orderDate</td>

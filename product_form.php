@@ -39,10 +39,7 @@
                     </tr>
                 </table>
             </form>
-            <?php
-                require_once "html_utils.php";
-                echo $footer;
-            ?>
+            <?php require_once "templates/footer.php"; ?>
         </div>
     </body>
 </html>

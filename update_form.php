@@ -1,5 +1,4 @@
 <?php
-require_once "html_utils.php";
 require_once "src/shop_files/get_product.php";
 ?>
 
@@ -46,7 +45,7 @@ require_once "src/shop_files/get_product.php";
                 <input type="hidden" name="FileName" value="<?= $fileName ?>">
                 <input type="hidden" name="Product" value="<?= $productKey ?>">
             </form>
-            <?= $footer ?>
+            <?php require_once "templates/footer.php" ?>
         </div>
     </body>
 </html>

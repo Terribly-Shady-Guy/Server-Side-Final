@@ -34,7 +34,7 @@ class User implements AdminModelInterface
         $userEmail = htmlspecialchars($this->email);
 
         return <<<_END
-        \n<tr>
+        <tr>
             <td>$userKey</td>
             <td>$username</td>
             <td>$password</td>

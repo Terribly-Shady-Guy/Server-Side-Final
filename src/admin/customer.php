@@ -34,7 +34,7 @@ class Customer implements AdminModelInterface
         $zip = htmlspecialchars($this->zip);
 
         return <<<_END
-        \n<tr>
+        /n <tr>
             <td>$customerKey</td>
             <td>$firstName</td>
             <td>$lastName</td>

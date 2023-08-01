@@ -1,5 +1,4 @@
 <?php
-require_once "html_utils.php";
 require_once "src/confirmation_files/get_order.php";
 require_once "src/confirmation_files/ordered_product.php";
 ?>
@@ -56,7 +55,7 @@ require_once "src/confirmation_files/ordered_product.php";
                     <?php endforeach; ?>
                 </table>
             </main>
-            <?= $footer ?>
+            <?php require_once "templates/footer.php"; ?>
         </div>
     </body>
 </html>

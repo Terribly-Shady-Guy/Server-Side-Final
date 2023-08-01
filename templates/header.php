@@ -1,6 +1,3 @@
-<?php
-
-$header = <<<_END
 <header>
     <img id="Banner" src="images/ssb-ultimate-banner.jpg">
     <ul id="Navigation">
@@ -23,20 +20,3 @@ $header = <<<_END
         <p id="Welcome"></p>
     </div>
 </header>
-_END;
-
-$footer = <<<_END
-<footer>
-    <ul id="ContactInfo">
-        <li>Phone: (763) 487-7777</li>
-        <li>Mailing Address: 1450 Main st. Minneapolis, MN 55406</li>
-    </ul>
-    <p>Made by gamers for gamers!</p>
-</footer>
-_END;
-
-$loginScript = <<<_END
-<script src="js/login.js"></script>
-_END;
-
-?>

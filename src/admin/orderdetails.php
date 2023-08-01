@@ -22,7 +22,7 @@ class OrderDetail implements AdminModelInterface
         $orderQty = htmlspecialchars($this->orderQty);
 
         return <<<_END
-        \n<tr>
+        <tr>
             <td>$orderKey</td>
             <td>$productKey</td>
             <td>$orderQty</td>

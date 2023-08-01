@@ -1,5 +1,4 @@
 <?php
-require_once "html_utils.php";
 require_once "src/cart_files/calculate_totals.php";
 ?>
 
@@ -10,9 +9,10 @@ require_once "src/cart_files/calculate_totals.php";
         <title>Shopping Cart</title>
         <link rel="stylesheet" href="styles/style.css">
         <link rel="stylesheet" href="styles/shopping_cart_layout.css">
+        <script src="js/login.js" defer></script>
     </head>
     <body>
-        <?= $header ?>
+        <?php require_once "templates/header.php" ?>
         <main>
             <div id="CartContainer">
                 <?php if (isset($_SESSION['cart'])): ?>
@@ -37,7 +37,6 @@ require_once "src/cart_files/calculate_totals.php";
                 </div>
             </div>
         </main>
-        <?= $footer ?>
-        <?= $loginScript ?>
+        <?php require_once "templates/footer.php" ?>
     </body>
 </html>

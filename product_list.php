@@ -1,5 +1,4 @@
 <?php
-require_once "html_utils.php";
 require_once "src/shop_files/show_products.php";
 ?>
 
@@ -12,7 +11,7 @@ require_once "src/shop_files/show_products.php";
         <link rel="stylesheet" href="styles/style.css">
     </head>
     <body>
-        <?= $header ?>
+        <?php require_once "templates/header.php" ?>
         <main>
             <p id="CartLink"><a href="shopping_cart.php">To Cart</a></p>
             <p id="AddProductLink" hidden><a href="product_form.php">Add product</a></p>
@@ -22,8 +21,8 @@ require_once "src/shop_files/show_products.php";
                 <?php endforeach; ?>
             </div>
         </main>
-        <?= $footer ?>
-        <?= $loginScript ?>
+        <?php require_once "templates/footer.php" ?>
+        <script src="js/login.js"></script>
         <script src="js/add_cart.js"></script>
     </body>
 </html>

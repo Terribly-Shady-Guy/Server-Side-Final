@@ -28,7 +28,7 @@ class Payment implements AdminModelInterface
         $expiryDate = htmlspecialchars($this->expiryDate);
 
         return <<<_END
-        \n<tr>
+        <tr>
             <td>$paymentKey</td>
             <td>$customerKey</td>
             <td>$cardNumber</td>
