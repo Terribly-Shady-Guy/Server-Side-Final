@@ -3,9 +3,9 @@ fetch("src/login_management/verify_auth.php")
 .then(data => displayControls(data));
 
 const logoutBtn = document.getElementById("logout");
-logoutBtn.onclick = function() {
+logoutBtn.onclick = () => {
     fetch('src/login_management/logout.php')
-    .then(() => location.reload());
+        .then(() => location.reload());
 }
 
 function displayControls(data) {
