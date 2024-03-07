@@ -6,13 +6,12 @@ require_once "../product_classes/cart_product.php";
 
 session_start();
 
-if (validatePost() && isset($_SESSION['cart']) && isset($_SESSION['total']))
-{
+if (validatePost() && isset($_SESSION['cart']) && isset($_SESSION['total'])) {
     $connection = new mysqli($hn, $un, $pw, $db);
     if ($connection->connect_error) die("Failed to connect to database");
 
     $orderKey = addOrder($connection);
-    
+
     $connection->close();
 
     $_SESSION['order'] = $orderKey;
@@ -20,9 +19,7 @@ if (validatePost() && isset($_SESSION['cart']) && isset($_SESSION['total']))
     unset($_SESSION['total']);
     
     header("Location: ../../confirmation.php");
-}
-else
-{
+} else {
     header("Location: ../../index.php");
 }
 
@@ -54,8 +51,7 @@ function addOrder(mysqli $connection) {
 
     $stmt = $connection->prepare("INSERT INTO orderdetails VALUES(?,?,?)");
 
-    foreach ($_SESSION['cart'] as $cartItem)
-    {
+    foreach ($_SESSION['cart'] as $cartItem) {
         $productkey = $cartItem->getProductKey();
         $orderQty = $cartItem->getOrderQty();
         $stmt->bind_param("iii", $orderKey, $productkey, $orderQty);
