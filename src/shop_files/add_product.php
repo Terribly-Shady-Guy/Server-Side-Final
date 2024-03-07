@@ -9,10 +9,8 @@ if (isset($_POST['product_name'])
     && isset($_POST['description'])
     && isset($_POST['price'])
     && isset($_POST['inv_qty'])
-    && isset($_SESSION['username']))
-{
-        switch ($_FILES['product_image']['type'])
-        {
+    && isset($_SESSION['username'])) {
+        switch ($_FILES['product_image']['type']) {
             case 'image/jpeg':
                 $ext = '.jpg';
                 break;
@@ -27,8 +25,7 @@ if (isset($_POST['product_name'])
                 break;
         }
 
-        if ($ext)
-        {
+        if ($ext) {
             $connection = new mysqli($hn, $un, $pw, $db);
             if ($connection->connect_error) die("Failed to connect to database");
 
@@ -39,8 +36,7 @@ if (isset($_POST['product_name'])
             $price = sanitizeInput($_POST['price'], $connection);
             $invQty = sanitizeInput($_POST['inv_qty'], $connection);
 
-            if (validateInt($invQty) && validateFloat($price))
-            {
+            if (validateInt($invQty) && validateFloat($price)) {
                 $stmt = $connection->prepare("INSERT INTO Products VALUES(?,?,?,?,?,?)");
                 $stmt->bind_param("isssdi", $productKey, $fileName, $productName, $description, $price, $invQty);
                 $stmt->execute();
@@ -53,13 +49,9 @@ if (isset($_POST['product_name'])
             $connection->close();
             
             header('Location: ../../product_list.php');
-        }
-        else
-        {
+        } else {
             echo "file is not a valid image type.";
         }
-}
-else
-{
+} else {
     echo "You do not have permission to add a new product.";
 }

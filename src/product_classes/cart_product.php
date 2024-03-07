@@ -2,8 +2,7 @@
 
 require_once "product_interface.php";
 
-class CartProduct implements ProductInterface
-{
+class CartProduct implements ProductInterface {
     private $productKey;
     private $image;
     private $name;
@@ -11,8 +10,7 @@ class CartProduct implements ProductInterface
     private $price;
     private $orderQty;
 
-    public function __construct($productValues, $orderQty)
-    {
+    public function __construct($productValues, $orderQty) {
         $this->productKey = $productValues['ProductKey'];
         $this->image = $productValues['ProductImage'];
         $this->name = $productValues['ProductName'];
@@ -21,8 +19,7 @@ class CartProduct implements ProductInterface
         $this->orderQty = $orderQty;
     }
 
-    public function getProductKey()
-    {
+    public function getProductKey() {
         return $this->productKey;
     }
 
@@ -42,18 +39,15 @@ class CartProduct implements ProductInterface
         return $this->description;
     }
 
-    public function getOrderQty()
-    {
+    public function getOrderQty() {
         return $this->orderQty;
     }
 
-    public function addOrderQty($orderQty)
-    {
+    public function addOrderQty($orderQty) {
         $this->orderQty += $orderQty;
     }
 
-    public function getProductSubtotal()
-    {
+    public function getProductSubtotal() {
         return $this->price * $this->orderQty;
     }
 }

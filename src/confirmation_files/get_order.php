@@ -4,16 +4,12 @@ require_once "src/config.php";
 
 session_start();
 
-if (isset($_SESSION['order']))
-{
+if (isset($_SESSION['order'])) {
     $orderKey = $_SESSION['order'];
 
-    if (isset($_SESSION['username']))
-    {
+    if (isset($_SESSION['username'])) {
         unset($_SESSION['order']);
-    }
-    else
-    {
+    } else {
         session_destroy();
     }
 
@@ -32,14 +28,11 @@ if (isset($_SESSION['order']))
     $orderedProducts = getOrderDetails($connection, $orderKey);
 
     $connection->close();
-}
-else
-{
+} else {
     header("Location: product_list.php");
 }
 
-function getOrder(mysqli $connection, $orderKey): array
-{
+function getOrder(mysqli $connection, $orderKey): array {
     $query = "SELECT OrderDate,
                     Total, 
                     CONCAT(CustFirstName,' ', CustLastName) AS CustName, 
@@ -63,8 +56,7 @@ function getOrder(mysqli $connection, $orderKey): array
     return $row;
 }
 
-function getOrderDetails(mysqli $connection, $orderKey): array
-{
+function getOrderDetails(mysqli $connection, $orderKey): array {
     $query = "SELECT ProductName, 
                     ProductPrice, 
                     OrderQty 
@@ -74,6 +66,12 @@ function getOrderDetails(mysqli $connection, $orderKey): array
                 WHERE OrderKey = $orderKey";
                     
     $result = $connection->query($query);
+    $row = $result->fetch_all(MYSQLI_ASSOC);
+    $result->close();
 
-    return $result->fetch_all(MYSQLI_ASSOC);
+    if ($row === false) {
+        return [];
+    }
+
+    return $row;
 }

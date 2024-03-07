@@ -1,19 +1,16 @@
 <?php
 
-function sanitizeInput($string, $connection)
-{
+function sanitizeInput(string $string, mysqli $connection): string {
     $string = strip_tags($string);
     $string = htmlentities($string);
     $string = stripslashes($string);
     return $connection->real_escape_string($string);
 }
 
-function validateInt($number)
-{
+function validateInt($number): bool {
     return filter_var($number, FILTER_VALIDATE_INT) && $number > 0;
 }
 
-function validateFloat($number)
-{
+function validateFloat($number): bool {
     return filter_var($number, FILTER_VALIDATE_FLOAT) && $number > 0;
 }

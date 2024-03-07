@@ -4,31 +4,25 @@ require_once "../config.php";
 require_once "../utils.php";
 require_once "../product_classes/cart_product.php";
 
-if (isset($_POST['Qty']) && isset($_POST['Product']))
-{
+if (isset($_POST['Qty']) && isset($_POST['Product'])) {
     $connection = new mysqli($hn, $un, $pw, $db);
     if ($connection->connect_error) die("Failed to connect to database.");
 
     $orderQty = sanitizeInput($_POST['Qty'], $connection);
     $productKey = sanitizeInput($_POST['Product'], $connection);
 
-    if (validateInt($orderQty))
-    {
+    if (validateInt($orderQty)) {
         session_start();
 
-        if (!isset($_SESSION['cart']))
-        {
+        if (!isset($_SESSION['cart'])) {
             $_SESSION['cart'] = array(); 
         }
 
         $foundItemIndex = findItem($productKey);
 
-        if ($foundItemIndex != -1)
-        {
+        if ($foundItemIndex != -1) {
             $_SESSION['cart'][$foundItemIndex]->addOrderQty($orderQty);
-        }
-        else
-        {
+        } else {
             $stmt = $connection->prepare("SELECT * FROM Products WHERE ProductKey = ?");
             $stmt->bind_param("i", $productKey);
             $stmt->execute();
@@ -46,14 +40,11 @@ if (isset($_POST['Qty']) && isset($_POST['Product']))
     $connection->close();
 }
 
-function findItem($productKey)
-{
+function findItem($productKey) {
     $length = count($_SESSION['cart']);
-    for ($index = 0; $index < $length; $index++)
-    {
+    for ($index = 0; $index < $length; $index++) {
         $cartItemProductKey = $_SESSION['cart'][$index]->getProductKey();
-        if ($cartItemProductKey == $productKey)
-        {
+        if ($cartItemProductKey == $productKey) {
             return $index;
         }
     }

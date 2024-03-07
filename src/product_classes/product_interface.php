@@ -1,6 +1,5 @@
 <?php
 
-interface ProductInterface
-{
+interface ProductInterface {
     public function getProductSubtotal();
 }

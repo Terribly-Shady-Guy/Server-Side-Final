@@ -9,10 +9,8 @@ $subtotal = 0;
 $tax = 0;
 $total = 0;
 
-if (isset($_SESSION['cart']))
-{
-    foreach($_SESSION['cart'] as $cartItem)
-    {
+if (isset($_SESSION['cart'])) {
+    foreach($_SESSION['cart'] as $cartItem) {
         $subtotal += $cartItem->getProductSubtotal();
     }
 

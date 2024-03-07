@@ -7,8 +7,7 @@ if (isset($_POST['Username'])
 && isset($_POST['Password'])
 && isset($_POST['Email'])
 && isset($_POST['FirstName'])
-&& isset($_POST['LastName']))
-{
+&& isset($_POST['LastName'])) {
     $connection = new mysqli($hn, $un, $pw, $db);
     if ($connection->connect_error) die("Failed to connect to database.");
 

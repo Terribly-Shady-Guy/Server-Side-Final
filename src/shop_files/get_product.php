@@ -3,8 +3,7 @@
 require_once "src/config.php";
 require_once "src/utils.php";
 
-if (isset($_POST['Product']))
-{
+if (isset($_POST['Product'])) {
     $connection = new mysqli($hn, $un, $pw, $db);
     if ($connection->connect_error) die("Failed to connect to database");
 

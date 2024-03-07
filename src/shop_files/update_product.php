@@ -11,15 +11,12 @@ if (isset($_POST['product_name'])
 && isset($_POST['inv_qty'])
 && isset($_POST['FileName'])
 && isset($_POST['Product'])
-&& isset($_SESSION['username']))
-{
+&& isset($_SESSION['username'])) {
     $connection = new mysqli($hn, $un, $pw, $db);
     if ($connection->connect_error) die("Failed to connect to database");
 
-    if(is_uploaded_file($_FILES['product_image']['tmp_name']))
-    {
-        switch ($_FILES['product_image']['type'])
-        {
+    if(is_uploaded_file($_FILES['product_image']['tmp_name'])) {
+        switch ($_FILES['product_image']['type']) {
             case 'image/jpeg':
                 $ext = '.jpg';
                 break;
@@ -33,24 +30,19 @@ if (isset($_POST['product_name'])
                 $ext = '';
                 break;
         }
-    }
-    else
-    {
+    } else {
         $fileName = sanitizeInput($_POST['FileName'], $connection);
     }
 
-    if ($ext || isset($fileName))
-    {
+    if ($ext || isset($fileName)) {
         $productKey = sanitizeInput($_POST['Product'], $connection);
         $productName = sanitizeInput($_POST['product_name'], $connection);
         $description = sanitizeInput($_POST['description'], $connection);
         $price = sanitizeInput($_POST['price'], $connection);
         $invQty = sanitizeInput($_POST['inv_qty'], $connection);
 
-        if (validateFloat($price) && validateInt($invQty))
-        {
-            if (!isset($fileName))
-            {
+        if (validateFloat($price) && validateInt($invQty)) {
+            if (!isset($fileName)) {
                 $fileName = $_FILES['product_image']['name'];
                 $folder = "../../images/" . $fileName;
                 move_uploaded_file($_FILES['product_image']['tmp_name'], $folder);
@@ -63,15 +55,11 @@ if (isset($_POST['product_name'])
         }
         
         header('Location: ../../product_list.php');
-    }
-    else
-    {
+    } else {
         echo "file is not a valid image type.";
     }
 
     $connection->close();
-}
-else
-{
+} else {
     echo "You do not have permission to update this product.";
 }
