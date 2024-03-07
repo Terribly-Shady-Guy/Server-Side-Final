@@ -4,10 +4,10 @@ require_once "src/config.php";
 
 session_start();
 
-$orderKey = $_SESSION['order'];
-
 if (isset($_SESSION['order']))
 {
+    $orderKey = $_SESSION['order'];
+
     if (isset($_SESSION['username']))
     {
         unset($_SESSION['order']);
@@ -27,12 +27,9 @@ if (isset($_SESSION['order']))
     $total = "$" . number_format($total, 2);
     $fullName = htmlspecialchars($order['CustName']);
     $address = htmlspecialchars($order['CustAddress']);
+    $cardNumber = htmlspecialchars($order['CardNum']);
 
-    $paymentKey = $order['PaymentKey'];
-
-    $cardNumber = getCardNumber($connection, $paymentKey);
-
-    $orderedProducts = getorderDetails($connection, $orderKey);
+    $orderedProducts = getOrderDetails($connection, $orderKey);
 
     $connection->close();
 }
@@ -47,14 +44,17 @@ function getOrder(mysqli $connection, $orderKey): array
                     Total, 
                     CONCAT(CustFirstName,' ', CustLastName) AS CustName, 
                     CONCAT(CustStreetAddress,' ', CustCity, ', ', CustState, ', ', CustZip) AS CustAddress,
-                    PaymentKey 
-                FROM Orders 
+                    CardNum 
+                FROM Orders
+                INNER JOIN payment
+                     ON payment.PaymentKey = Orders.PaymentKey
                 INNER JOIN Customer 
                     ON Customer.CustomerKey = Orders.CustomerKey 
                 WHERE OrderKey = $orderKey";
 
     $result = $connection->query($query);
     $row = $result->fetch_array(MYSQLI_ASSOC);
+    $result->close();
 
     if ($row === false) {
         return [];
@@ -63,17 +63,7 @@ function getOrder(mysqli $connection, $orderKey): array
     return $row;
 }
 
-function getCardNumber(mysqli $connection, $paymentKey): string
-{
-    $query = "SELECT CardNum FROM payment WHERE PaymentKey = $paymentKey";
-    $result = $connection->query($query);
-    $row = $result->fetch_array(MYSQLI_ASSOC);
-    $result->close();
-
-    return htmlspecialchars($row['CardNum']);
-}
-
-function getorderDetails(mysqli $connection, $orderKey): array
+function getOrderDetails(mysqli $connection, $orderKey): array
 {
     $query = "SELECT ProductName, 
                     ProductPrice, 
