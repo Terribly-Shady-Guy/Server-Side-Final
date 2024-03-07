@@ -11,30 +11,8 @@ if (validatePost() && isset($_SESSION['cart']) && isset($_SESSION['total']))
     $connection = new mysqli($hn, $un, $pw, $db);
     if ($connection->connect_error) die("Failed to connect to database");
 
-    $orderKey = null;
-    $total = round($_SESSION['total'], 2);
-    $orderDate = date('Y-m-d', time());
-    $customerKey = addCustomer($connection);
-    $paymentKey = addPayment($connection, $customerKey);
-
-    $stmt = $connection->prepare("INSERT INTO orders VALUES(?,?,?,?,?)");
-    $stmt->bind_param("idsii", $orderKey, $total, $orderDate, $customerKey, $paymentKey);
-    $stmt->execute();
-    $stmt->close();
+    $orderKey = addOrder($connection);
     
-    $orderKey = $connection->insert_id;
-
-    $stmt = $connection->prepare("INSERT INTO orderdetails VALUES(?,?,?)");
-
-    foreach ($_SESSION['cart'] as $cartItem)
-    {
-        $productkey = $cartItem->getProductKey();
-        $orderQty = $cartItem->getOrderQty();
-        $stmt->bind_param("iii", $orderKey, $productkey, $orderQty);
-        $stmt->execute();
-    }
-
-    $stmt->close();
     $connection->close();
 
     $_SESSION['order'] = $orderKey;
@@ -59,6 +37,35 @@ function validatePost(): bool {
     return true;
 }
 
+function addOrder(mysqli $connection) {
+
+    $orderKey = null;
+    $total = round($_SESSION['total'], 2);
+    $orderDate = date('Y-m-d', time());
+    $customerKey = addCustomer($connection);
+    $paymentKey = addPayment($connection, $customerKey);
+
+    $stmt = $connection->prepare("INSERT INTO orders VALUES(?,?,?,?,?)");
+    $stmt->bind_param("idsii", $orderKey, $total, $orderDate, $customerKey, $paymentKey);
+    $stmt->execute();
+    $stmt->close();
+    
+    $orderKey = $connection->insert_id;
+
+    $stmt = $connection->prepare("INSERT INTO orderdetails VALUES(?,?,?)");
+
+    foreach ($_SESSION['cart'] as $cartItem)
+    {
+        $productkey = $cartItem->getProductKey();
+        $orderQty = $cartItem->getOrderQty();
+        $stmt->bind_param("iii", $orderKey, $productkey, $orderQty);
+        $stmt->execute();
+    }
+
+    $stmt->close();
+
+    return $orderKey;
+}
 function addPayment(mysqli $connection, $customerKey): int {
     $paymentKey = null;
     $cardNumber = sanitizeInput($_POST['CardNumber'], $connection);
